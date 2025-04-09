@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <meta charset='UTF-8' />
+  <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+  <title>Shoe Shop</title>
+  <script src='https://cdn.tailwindcss.com'></script>
+</head>
+<body class='bg-gray-100 flex flex-col min-h-screen'>
+  <!-- Navigation Bar -->
+  <header class='bg-white shadow'>
+    <div class='container mx-auto flex justify-between items-center p-4'>
+      <div class='text-2xl font-bold text-gray-800'>Sneakers</div>
+      <ul class='flex space-x-6 text-gray-600'>
+        <li><a href='#' class='hover:text-gray-800'>Collections</a></li>
+        <li><a href='#' class='hover:text-gray-800'>Men</a></li>
+        <li><a href='#' class='hover:text-gray-800'>Women</a></li>
+        <li><a href='#' class='hover:text-gray-800'>About</a></li>
+        <li><a href='#' class='hover:text-gray-800'>Contact</a></li>
+      </ul>
+      <div class='flex items-center space-x-4'>
+        <button id='cart-btn' class='relative'>
+          <svg xmlns='http://www.w3.org/2000/svg' class='h-6 w-6 text-gray-600 hover:text-gray-800' fill='none' viewBox='0 0 24 24' stroke='currentColor'>
+            <path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2 9m12-9l2 9m-6-9v9' />
+          </svg>
+          <span id='cart-count' class='absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center'>0</span>
+        </button>
+        <div class='w-10 h-10 rounded-full overflow-hidden border-2 border-gray-300'>
+          <img src='m.png' alt='Profile' class='w-full h-full object-cover' />
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Product Section -->
+  <main class='flex-grow container mx-auto p-4'>
+    <div class='bg-white shadow rounded-lg p-6 flex flex-col md:flex-row gap-6'>
+      <!-- Image Gallery -->
+      <div class='flex-1 relative'>
+        <img id='main-image' src='i.jpg' alt='Shoe' class='w-full h-80 object-cover rounded-lg cursor-pointer transform transition duration-300 hover:scale-105' />
+        <button id='prev-btn' class='absolute left-2 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-75 p-2 rounded-full hover:bg-opacity-100'>
+          <svg xmlns='http://www.w3.org/2000/svg' class='h-6 w-6 text-gray-800' fill='none' viewBox='0 0 24 24' stroke='currentColor'>
+            <path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M15 19l-7-7 7-7' />
+          </svg>
+        </button>
+        <button id='next-btn' class='absolute right-2 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-75 p-2 rounded-full hover:bg-opacity-100'>
+          <svg xmlns='http://www.w3.org/2000/svg' class='h-6 w-6 text-gray-800' fill='none' viewBox='0 0 24 24' stroke='currentColor'>
+            <path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M9 5l7 7-7 7' />
+          </svg>
+        </button>
+        <div class='flex space-x-4 mt-4 justify-center'>
+          <img src='i.jpg' alt='View 1' data-index='0' class='thumbnail w-16 h-16 object-cover rounded-md hover:ring-2 hover:ring-gray-400 cursor-pointer' />
+          <img src='u.jpg' alt='View 2' data-index='1' class='thumbnail w-16 h-16 object-cover rounded-md hover:ring-2 hover:ring-gray-400 cursor-pointer' />
+          <img src='p.jpg' alt='View 3' data-index='2' class='thumbnail w-16 h-16 object-cover rounded-md hover:ring-2 hover:ring-gray-400 cursor-pointer' />
+          <img src='t.jpg' alt='View 4' data-index='3' class='thumbnail w-16 h-16 object-cover rounded-md hover:ring-2 hover:ring-gray-400 cursor-pointer' />
+          <img src='x.jpg' alt='View 5' data-index='4' class='thumbnail w-16 h-16 object-cover rounded-md hover:ring-2 hover:ring-gray-400 cursor-pointer' />
+        </div>
+      </div>
+      <!-- Details -->
+      <div class='flex-1 flex flex-col justify-between'>
+        <div>
+          <h6 class='text-orange-500 font-semibold uppercase'>Sneaker Company</h6>
+          <h1 class='text-3xl font-bold text-gray-800 mt-2'>Fall Limited Edition Sneakers</h1>
+          <p class='text-gray-600 mt-4'>These low-profile sneakers are your perfect casual wear companion. Featuring a durable rubber outer sole, they’ll withstand everything the weather can offer.</p>
+          <div class='flex items-center mt-4'>
+            <span class='text-2xl font-bold text-gray-800'>$125.00</span>
+            <span class='ml-4 bg-orange-100 text-orange-500 font-semibold px-2 py-1 rounded'>50% OFF</span>
+          </div>
+          <p class='mt-2 text-green-600 font-medium'>In Stock</p>
+          <div class='flex items-center mt-2'>
+            <div class='flex items-center'>
+              <svg xmlns='http://www.w3.org/2000/svg' class='h-5 w-5 text-yellow-400' viewBox='0 0 20 20' fill='currentColor'>
+                <path d='M9.049 2.927C9.35 2.11 10.65 2.11 10.951 2.927L12.18 6.405A1 1 0 0013.102 7.27L16.83 7.636C17.695 7.713 17.97 8.85 17.29 9.407L14.48 11.731A1 1 0 0014.09 13.414L14.876 17.06C14.993 17.929 14.021 18.545 13.301 18.011L10 16.118A1 1 0 008.699 16.118L5.398 18.011C4.678 18.545 3.707 17.929 3.824 17.06L4.61 13.414A1 1 0 004.22 11.731L1.41 9.407C0.73 8.85 1.005 7.713 1.87 7.636L5.598 7.27A1 1 0 006.42 6.405L7.649 2.927z' />
+              </svg>
+              <!-- Repeat for other stars -->
+              <span class='ml-2 text-gray-600'>4.5 (24 reviews)</span>
+            </div>
+          </div>
+          <div class='mt-4'>
+            <h3 class='text-lg font-semibold text-gray-800'>Features</h3>
+            <ul class='list-disc list-inside text-gray-600 mt-2 space-y-1'>
+              <li>Durable rubber sole</li>
+              <li>Lightweight design</li>
+              <li>Breathable materials</li>
+              <li>Modern, minimalist style</li>
+            </ul>
+          </div>
+        </div>
+        <div class='mt-6 flex flex-col sm:flex-row sm:items-center sm:space-x-4 space-y-4 sm:space-y-0'>
+          <div class='flex items-center border border-gray-300 rounded'>
+            <button id='decrease-qty' class='px-3 py-2 text-gray-600 hover:text-gray-800'>-</button>
+            <input id='quantity' type='number' value='1' min='1' class='w-12 text-center border-l border-r border-gray-300 focus:outline-none' />
+            <button id='increase-qty' class='px-3 py-2 text-gray-600 hover:text-gray-800'>+</button>
+          </div>
+          <button id='add-to-cart' class='flex-1 bg-orange-500 hover:bg-orange-600 text-white font-semibold px-6 py-3 rounded-lg flex items-center justify-center space-x-2'>
+            <svg xmlns='http://www.w3.org/2000/svg' class='h-5 w-5' fill='none' viewBox='0 0 24 24' stroke='currentColor'>
+              <path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2 9m12-9l2 9m-6-9v9' />
+            </svg>
+            <span>Add to Cart</span>
+          </button>
+          <button id='buy-now' class='flex-1 bg-gray-800 hover:bg-gray-900 text-white font-semibold px-6 py-3 rounded-lg'>Buy Now</button>
+        </div>
+      </div>
+    </div>
+    <!-- Related Products -->
+    <section class='container mx-auto p-4 mt-8'>
+      <h2 class='text-2xl font-semibold text-gray-800 mb-4'>Related Products</h2>
+      <div class='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6'>
+        <div class='bg-white shadow rounded-lg p-4 text-center'>
+          <img src='related1.jpg' alt='Related 1' class='w-full h-40 object-cover rounded-md mb-2' />
+          <p class='text-gray-800 font-medium'>Sneaker Model A</p>
+          <p class='text-gray-600'>$99.00</p>
+        </div>
+        <div class='bg-white shadow rounded-lg p-4 text-center'>
+          <img src='related2.jpg' alt='Related 2' class='w-full h-40 object-cover rounded-md mb-2' />
+          <p class='text-gray-800 font-medium'>Sneaker Model B</p>
+          <p class='text-gray-600'>$109.00</p>
+        </div>
+        <div class='bg-white shadow rounded-lg p-4 text-center'>
+          <img src='related3.jpg' alt='Related 3' class='w-full h-40 object-cover rounded-md mb-2' />
+          <p class='text-gray-800 font-medium'>Sneaker Model C</p>
+          <p class='text-gray-600'>$95.00</p>
+        </div>
+        <div class='bg-white shadow rounded-lg p-4 text-center'>
+          <img src='related4.jpg' alt='Related 4' class='w-full h-40 object-cover rounded-md mb-2' />
+          <p class='text-gray-800 font-medium'>Sneaker Model D</p>
+          <p class='text-gray-600'>$115.00</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Cart Sidebar -->
+  <aside id='cart' class='fixed top-0 right-0 w-80 h-full bg-white shadow-lg transform translate-x-full transition-transform'>
+    <div class='flex justify-between items-center p-4 border-b'>
+      <h3 class='text-lg font-semibold'>Shopping Cart</h3>
+      <button id='close-cart' class='text-gray-600 hover:text-gray-800'>
+        <svg xmlns='http://www.w3.org/2000/svg' class='h-6 w-6' fill='none' viewBox='0 0 24 24' stroke='currentColor'>
+          <path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M6 18L18 6M6 6l12 12' />
+        </svg>
+      </button>
+    </div>
+    <div id='cart-items' class='p-4 space-y-2'></div>
+    <div class='p-4 border-t'>
+      <p id='total-price' class='text-lg font-semibold'>Total: $0</p>
+      <button id='clear-cart' class='mt-4 w-full bg-red-500 hover:bg-red-600 text-white font-semibold py-2 rounded'>Clear Cart</button>
+    </div>
+  </aside>
+
+  <footer class='text-center p-4 text-gray-500'>Created by Sai for DSC</footer>
+
+  <script>
+    const images=['i.jpg','u.jpg','p.jpg','t.jpg','x.jpg'];
+    let currentImageIndex=0;
+    function showImage(index){
+      currentImageIndex=index;
+      document.getElementById('main-image').src=images[index];
+      document.querySelectorAll('.thumbnail').forEach((img,i)=>{
+        if(i===index){
+          img.classList.add('ring-2','ring-orange-500');
+        } else {
+          img.classList.remove('ring-2','ring-orange-500');
+        }
+      });
+    }
+    document.getElementById('prev-btn').addEventListener('click',prevImage);
+    document.getElementById('next-btn').addEventListener('click',nextImage);
+    document.querySelectorAll('.thumbnail').forEach(img=>img.addEventListener('click',()=>showImage(parseInt(img.getAttribute('data-index')))));
+    function prevImage(){showImage((currentImageIndex-1+images.length)%images.length);}    
+    function nextImage(){showImage((currentImageIndex+1)%images.length);}    
+    function changeQuantity(delta){const qtyInput=document.getElementById('quantity');qtyInput.value=Math.max(1,parseInt(qtyInput.value)+delta);}    
+    document.getElementById('decrease-qty').addEventListener('click',()=>changeQuantity(-1));
+    document.getElementById('increase-qty').addEventListener('click',()=>changeQuantity(1));
+    let cart=[];let totalPrice=0;
+    document.getElementById('cart-btn').addEventListener('click',toggleCart);
+    document.getElementById('close-cart').addEventListener('click',toggleCart);
+    document.getElementById('add-to-cart').addEventListener('click',()=>addToCart('Fall Limited Edition Sneakers',125));
+    document.getElementById('buy-now').addEventListener('click',()=>buyNow('Fall Limited Edition Sneakers',125));
+    document.getElementById('clear-cart').addEventListener('click',clearCart);
+    function addToCart(name,price){
+      const qty=parseInt(document.getElementById('quantity').value);
+      cart.push({name,price,qty});
+      totalPrice+=price*qty;
+      document.getElementById('cart-count').innerText=cart.length;
+      updateCart();
+    }
+    function buyNow(name,price){
+      const qty=parseInt(document.getElementById('quantity').value);
+      alert(`Proceeding to buy ${name} x${qty} for $${price*qty}`);
+    }
+    function updateCart(){
+      const container=document.getElementById('cart-items');
+      container.innerHTML='';
+      cart.forEach(item=>{
+        const div=document.createElement('div');
+        div.className='flex justify-between';
+        div.innerText=`${item.name} x ${item.qty}`;
+        container.appendChild(div);
+      });
+      document.getElementById('total-price').innerText=`Total: $${totalPrice}`;
+    }
+    function toggleCart(){document.getElementById('cart').classList.toggle('translate-x-full');}
+    function clearCart(){cart=[];totalPrice=0;document.getElementById('cart-count').innerText=0;updateCart();}
+    window.addEventListener('DOMContentLoaded',()=>showImage(0));
+  </script>
+</body>
+</html>
